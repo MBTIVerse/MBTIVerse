@@ -1,6 +1,22 @@
 version: "3"
 services:
-  # # API
+# Database
+  DB_Services:
+    build:
+      context: .
+      dockerfile: DB_Services/DB_Services.Dockerfile
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+    volumes:
+      - type: bind 
+        source: ./DB_Services/data/db
+        target: /data/db
+    image: mongo:4.4.4
+    ports:
+      - "27017:27017"
+# API
   API_MBTI:
     build:
       context: .
@@ -8,6 +24,16 @@ services:
     image: node:14.16
     ports:
       - "3000:3000"
+#    depends_on:
+#      - DB_Services
+#      - DB_User
+  API_User:
+    build:
+      context: .
+      dockerfile: API_User/API_User.Dockerfile
+    image: node:14.16
+    ports:
+      - "3100:3100"
 #    depends_on:
 #      - DB_Services
 #      - DB_User
