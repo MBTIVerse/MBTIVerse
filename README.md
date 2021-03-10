@@ -1,3 +1,5 @@
 Project MBTIVerse
 
-First Step, run 'docker-compose up --build'
+1st, run 'mkdir -p ./DB_Services/data/db'
+
+2st, run 'docker-compose up --build'
