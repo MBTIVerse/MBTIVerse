@@ -1,0 +1,13 @@
+version: "3"
+services:
+  # # API
+  API_MBTI:
+    build:
+      context: .
+      dockerfile: API_MBTI/API_MBTI.Dockerfile
+    image: node:14.16
+    ports:
+      - "3000:3000"
+#    depends_on:
+#      - DB_Services
+#      - DB_User
