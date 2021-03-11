@@ -1,4 +1,4 @@
-Project MBTIVerse
+Project of MBTIVerse
 
 1st, run 'mkdir -p ./DB_Services/data/db && mkdir -p ./DB_User/data/db'
 

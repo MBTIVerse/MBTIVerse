@@ -39,16 +39,27 @@ services:
     image: node:14.16
     ports:
       - "3000:3000"
-#    depends_on:
-#      - DB_Services
-#      - DB_User
+    depends_on:
+      - DB_Services
+      - DB_User
   API_User:
     build:
       context: .
       dockerfile: API_User/API_User.Dockerfile
     image: node:14.16
     ports:
-      - "3100:3100"
-#    depends_on:
-#      - DB_Services
-#      - DB_User
+      - "3100:3000"
+    depends_on:
+      - DB_Services
+      - DB_User
+# Front
+  Front_WEB:
+    build:
+      context: .
+      dockerfile: Front_WEB/Front_WEB.Dockerfile
+    image: node:14.16
+    ports:
+      - "3500:3000"
+    depends_on:
+      - API_MBTI
+      - API_User

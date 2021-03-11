@@ -6,6 +6,6 @@ WORKDIR /API_User
 
 RUN npm install
 
-EXPOSE 3100
+EXPOSE 3000
 
 CMD ["npm", "start"]
